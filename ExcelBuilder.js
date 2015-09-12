@@ -53,7 +53,7 @@ if ("object" !== typeof Excel) {
 
 
         //Add Worksheet
-        this.addWorksheet = function (sheet) {
+        this.add = function (sheet) {
             if (!sheet) return;
             worksheets.push(sheet);
         }
@@ -125,7 +125,7 @@ if ("object" !== typeof Excel) {
             }());
 
         //Add Rows
-        this.addRow = function (row) {
+        this.add = function (row) {
             if (!row) return;
             rows.push(row);
         }
@@ -138,12 +138,12 @@ if ("object" !== typeof Excel) {
                 row = new self.Row();
                 for (var j = 0; j < items[i].length; j += 1) {
                     data = new self.Data();
-                    data.addText(items[i][j]);
+                    data.add(items[i][j]);
                     cell = new self.Cell();
-                    cell.addData(data);
-                    row.addCell(cell);
+                    cell.add(data);
+                    row.add(cell);
                 }
-                this.addRow(row);
+                this.add(row);
             }
         }
 
@@ -185,7 +185,7 @@ if ("object" !== typeof Excel) {
         var cells = [];
 
         //Add Cell
-        this.addCell = function (cell) {
+        this.add = function (cell) {
             if (!cell) return;
             cells.push(cell);
         }
@@ -211,7 +211,7 @@ if ("object" !== typeof Excel) {
         var datas = [];
 
         //Add Data
-        this.addData = function (data) {
+        this.add = function (data) {
             if (!data) return;
             datas.push(data);
         }
@@ -237,7 +237,7 @@ if ("object" !== typeof Excel) {
         var items = [];
 
         //Add Text
-        this.addText = function (text) {
+        this.add = function (text) {
             if (!text && parseInt(text) !== 0) return;
             items.push(text);
         }
@@ -269,12 +269,12 @@ if ("object" !== typeof Excel) {
             row = new self.Row();
             for (var j = 0; j < items[i].length; j += 1) {
                 data = new self.Data();
-                data.addText(items[i][j]);
+                data.add(items[i][j]);
                 cell = new self.Cell();
-                cell.addData(data);
-                row.addCell(cell);
+                cell.add(data);
+                row.add(cell);
             }
-            worksheet.addRow(row);
+            worksheet.add(row);
         }
 
     }

@@ -34,7 +34,7 @@ var data = [
 worksheet1.addAllData(data);
 
 //Add Worksheet to Workbook
-workbook.addWorksheet(worksheet1);
+workbook.add(worksheet1);
 
 
 //Render Workbook
@@ -52,3 +52,48 @@ var url = workbook.toUrl();
 
 
 ```
+
+
+There are a few more Classes you have access to, if you want to customize a little more. Below is a list of 
+all the classes available in the Excel Library.
+
+- Workbook
+- Worksheet
+- Row
+- Cell
+- Data
+
+
+
+Workbook:
+
+```javascript
+
+//Instantiate new Workbook
+//and pass in Workbook name
+var workbook = new Excel.Workbook({
+	name: "MyWorkBook"
+});
+
+//Set Name of Workbook
+workbook.setName("MyWorkbookName");
+
+//Get Name of Workbook
+workbook.getName();		//--> "MyWorkbookName"
+
+//Add Worksheet to Workbook
+workbook.add(MyWorksheet);
+
+//Render Workbook
+workbook.render();		//--> Rendered XML
+
+//Initiate Download of Excel Document
+//Client side
+workbook.download();
+
+//Returns url of XML
+workbook.toUrl();		//--> XML Link
+
+```
+
+
