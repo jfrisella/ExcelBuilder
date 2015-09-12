@@ -79,21 +79,98 @@ var workbook = new Excel.Workbook({
 workbook.setName("MyWorkbookName");
 
 //Get Name of Workbook
-workbook.getName();		//--> "MyWorkbookName"
+var name = workbook.getName();		//--> "MyWorkbookName"
 
 //Add Worksheet to Workbook
 workbook.add(MyWorksheet);
 
 //Render Workbook
-workbook.render();		//--> Rendered XML
+var xml = workbook.render();		//--> Rendered XML
 
 //Initiate Download of Excel Document
 //Client side
 workbook.download();
 
 //Returns url of XML
-workbook.toUrl();		//--> XML Link
+var link = workbook.toUrl();		//--> XML Link
 
 ```
 
 
+Worksheet: 
+
+```javascript
+
+//Instantiate new Worksheet
+var worksheet = new Excel.Worksheet({
+	name: "MyWorkSheet"
+});
+
+//Set Name of Worksheet
+worksheet.setName("MyWorkSheetName");
+
+//Get Name of Worksheet
+var name = worksheet.getName();		//--> "MyWorkSheetName"
+
+//Add Row to Worksheet
+worksheet.add(Row);
+
+//Add Full list of Data to Worksheet
+//Convenience method to add two dimensional array to Worksheet
+worksheet.addAllData([
+	["some", "data", "goes"],
+	["here", 4, 5]
+]);
+
+//Render Worksheet
+var xml = worksheet.render();		//--> Rendered XML
+
+```
+
+
+Row:
+
+```javascript
+
+//Initiate new Row
+var row = new Row();
+
+//Add Cell to Row
+row.add(Cell);
+
+//Render Row
+var xml = row.render();			//--> Rendered XML
+
+```
+
+
+Cell:
+
+```javascript
+
+//Initiate new Cell
+var cell = new Cell();
+
+//Add Data to Cell
+cell.add(Data);
+
+//Render Cell
+var xml = cell.render();		//--> Rendered XML
+
+```
+
+
+Data:
+
+```javascript
+
+//Initiate new Data
+var data = new Data();
+
+//Add text/number to Data
+data.add("Some Text" || 5);
+
+//Render Data
+var xml = data.render();		//--> Rendered XML
+
+```
