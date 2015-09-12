@@ -19,10 +19,10 @@
         ];
         var workbook = new Excel.Workbook();
         var worksheet1 = new Excel.Worksheet();
-        Excel.buildWorksheet(worksheet1, items1);
+        worksheet1.addAllData(items1);
 
         var worksheet2 = new Excel.Worksheet();
-        Excel.buildWorksheet(worksheet2, items2);
+        worksheet2.addAllData(items2);
 
         workbook.addWorksheet(worksheet1);
         workbook.addWorksheet(worksheet2);

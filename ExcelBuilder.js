@@ -130,6 +130,23 @@ if ("object" !== typeof Excel) {
             rows.push(row);
         }
 
+        //Add All Data
+        //Convenience method for population worksheet
+        this.addAllData = function(items){
+            
+            for (var i = 0; i < items.length; i += 1) {
+                row = new self.Row();
+                for (var j = 0; j < items[i].length; j += 1) {
+                    data = new self.Data();
+                    data.addText(items[i][j]);
+                    cell = new self.Cell();
+                    cell.addData(data);
+                    row.addCell(cell);
+                }
+                this.addRow(row);
+            }
+        }
+
         //Render Worksheet
         this.render = function () {
             var final = [];
@@ -249,11 +266,11 @@ if ("object" !== typeof Excel) {
     self.buildWorksheet = function (worksheet, items) {
 
         for (var i = 0; i < items.length; i += 1) {
-            row = new Excel.Row();
+            row = new self.Row();
             for (var j = 0; j < items[i].length; j += 1) {
-                data = new Excel.Data();
+                data = new self.Data();
                 data.addText(items[i][j]);
-                cell = new Excel.Cell();
+                cell = new self.Cell();
                 cell.addData(data);
                 row.addCell(cell);
             }
