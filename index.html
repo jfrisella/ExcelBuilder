@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+</head>
+<body>
+
+
+
+    <script type="text/javascript" src="ExcelBuilder.js"></script>
+    <script>
+        var items1 = [
+            [1,2,3,4],
+            [5,6,7,8]
+        ];
+        var items2 = [
+            [1, 2, 3, 4],
+            [5, 6, 7, 8]
+        ];
+        var workbook = new Excel.Workbook();
+        var worksheet1 = new Excel.Worksheet();
+        Excel.buildWorksheet(worksheet1, items1);
+
+        var worksheet2 = new Excel.Worksheet();
+        Excel.buildWorksheet(worksheet2, items2);
+
+        workbook.addWorksheet(worksheet1);
+        workbook.addWorksheet(worksheet2);
+
+        worksheet1.setName("MySheet1");
+        worksheet2.setName("MyOtherSheet");
+
+        workbook.setName("newname");
+        workbook.download();
+        
+    </script>
+</body>
+</html>
